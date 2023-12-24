@@ -1,0 +1,24 @@
+{
+  "development": {
+    "database": "db_h3o_demo",
+    "username": "postgres",
+    "password": "H3jkHtyUyh!89k",
+    "port": "5432",
+    "host": "dbh3odev.cw14djtrv8xq.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SequelizeData"
+  },
+  "production": {
+    "database": "db_h3o_demo",
+    "username": "postgres",
+    "password": "H3jkHtyUyh!89k",
+    "port": "5432",
+    "host": "dbh3odev.cw14djtrv8xq.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "seederStorage": "sequelize",
+    "seederStorageTableName": "SequelizeData"
+  }
+}

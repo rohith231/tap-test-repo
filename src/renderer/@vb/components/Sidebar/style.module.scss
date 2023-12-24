@@ -1,0 +1,277 @@
+@import '@/mixins.scss';
+
+.vb__sidebar {
+  width: 300px;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: $white;
+  transform: translateX(300px);
+  @include transition-slow();
+
+  h6 {
+    margin-bottom: rem(15);
+  }
+
+  :global(.ant-collapse-content-box) {
+    padding: 16px 8px !important;
+  }
+
+  :global(.ant-collapse-item) {
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__toggled {
+    transform: translateX(0);
+    box-shadow: $shadow;
+  }
+
+  // mobile toggle button
+  &__close {
+    float: right;
+    position: relative;
+    top: 3px;
+  }
+
+  &__inner {
+    // padding: rem(25) rem(20);
+  }
+
+  &__fixColorPicker {
+    position: relative;
+    top: -4px;
+  }
+
+  &__fixSwitch {
+    position: relative;
+    top: -5px;
+  }
+
+  &__select {
+    &__item {
+      margin-left: rem(2);
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid transparent;
+      border-radius: 24px;
+      float: left;
+      padding: 1px;
+      cursor: pointer;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 18px;
+      }
+
+      &__active {
+        border: 2px solid $blue;
+      }
+
+      &__white {
+        &:after {
+          border: 1px solid $gray-2;
+          background: $white;
+        }
+      }
+
+      &__gray {
+        &:after {
+          background: $gray-1;
+        }
+      }
+
+      &__blue {
+        &:after {
+          background: $blue;
+        }
+      }
+
+      &__green {
+        &:after {
+          background: rgb(31, 188, 156);
+        }
+      }      
+      &__red {
+        &:after {
+          background: rgb(232, 75, 60);
+        }
+      }
+      &__aqua {
+        &:after {
+          background: aqua;
+        }
+      }
+      &__antiquewhite {
+        &:after {
+          background: antiquewhite;
+        }
+      }
+      &__black {
+        &:after {
+          background: $black;
+        }
+      }
+      &__orange {
+        &:after {
+          background: rgb(243, 156, 25);
+        }
+      }
+      &__purple {
+        &:after {
+          background: rgb(142, 67, 173);
+        }
+      }
+      &__img {
+        &:after {
+          background: linear-gradient(
+            to right,
+            rgba(240, 240, 240, 1) 0%,
+            rgba(210, 210, 220, 1) 100%
+          );
+        }
+      }
+    }
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .vb__sidebar {
+    background: $dark-gray-6;
+
+    &__select {
+      &__item {
+        &__black {
+          &:after {
+            background: $dark-gray-4;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.item {
+  border-bottom: 1px solid $gray-2;
+  @include transition-middle;
+
+  &:hover {
+    background-color: $gray-1;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.itemLink {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: inherit;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:focus {
+    color: inherit;
+  }
+}
+
+.itemPic {
+  width: rem(42);
+  height: rem(42);
+  border: 1px solid $gray-2;
+  border-radius: 50%;
+  text-align: center;
+  font-size: rem(18);
+  line-height: rem(42);
+  vertical-align: middle;
+  margin-right: rem(20);
+  margin-left: rem(15);
+  background-color: $white;
+  flex-shrink: 0;
+}
+
+.itemAction {
+  margin-left: auto;
+  white-space: nowrap;
+  width: 8px;
+  height: 15px;
+  margin-right: rem(20);
+
+  span {
+    @include transition-fast();
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 22px;
+
+    &:before {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      transform: rotate(45deg);
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: $blue;
+      border-radius: 5px;
+    }
+
+    &:after {
+      position: absolute;
+      top: 9px;
+      left: 0;
+      transform: rotate(-45deg);
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: $blue;
+      border-radius: 5px;
+    }
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .item {
+    border-bottom: 1px solid $dark-gray-4;
+    &:hover {
+      background-color: $dark-gray-5;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .itemPic {
+    background: $dark-gray-5;
+    border-color: $dark-gray-4;
+  }
+}
+
+
+.read {
+  border-left: 4px solid green !important;
+  border-radius: 2px;
+}
+.un-read {
+  border-left: 4px solid orange !important;
+  border-radius: 2px;
+}

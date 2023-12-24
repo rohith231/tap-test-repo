@@ -1,0 +1,2728 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta charset="utf-8">
+  </meta>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  </meta>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  </meta>
+  <title> SSP Report</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0px;
+      padding: 0px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      color: #000;
+      font-size: 14px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 50%;
+      background-color: #3d556e;
+      color: #ffffff;
+      padding-bottom: 15px;
+      padding-top: 5px;
+
+      text-align: center;
+    }
+
+    .contentWrap-border {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .displayclass {
+      display: none;
+    }
+
+    .cover-title {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .cover-descriptions {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .cover-date {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .wraper-fluid {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .footer {
+      width: 100%;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .footer-contentWrap {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-logo {
+      padding: 8px;
+      border-radius: 10px;
+      text-align: right;
+    }
+
+    .footer-logo img {
+      width: 40px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #666;
+      padding-top: 8px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .btn-red {
+      display: inline-block;
+      outline: none;
+      cursor: unset;
+      border: 0;
+      color: #fff;
+      background: #F44336;
+      text-align: center;
+      text-decoration: none;
+      font: 12px Arial, Helvetica, sans-serif;
+      padding: .2em 1.5em .25em;
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .3em;
+      margin-top: .5em;
+
+    }
+
+    .btn-green {
+      display: inline-block;
+      outline: none;
+      cursor: unset;
+      border: 0;
+      color: #fff;
+      background: #4CAF50;
+      text-align: center;
+      text-decoration: none;
+      font: 12px Arial, Helvetica, sans-serif;
+      padding: .2em 1.5em .25em;
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .3em;
+      margin-top: .5em;
+
+    }
+
+    .btn-gray {
+      display: inline-block;
+      outline: none;
+      cursor: unset;
+      border: 0;
+      color: #fff;
+      background: rgb(161, 161, 161);
+      text-align: center;
+      text-decoration: none;
+      font: 12px Arial, Helvetica, sans-serif;
+      padding: .2em 1.5em .25em;
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .3em;
+      margin-top: .5em;
+
+    }
+
+    i.fa {
+      margin-right: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .fa:hover {
+      color: blue;
+    }
+
+    .colaps-btn {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      vertical-align: middle;
+      transition: all 0.3s ease-in 0s;
+    }
+
+    .colaps-btn:before {
+      content: "";
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      width: 4px;
+      height: 2px;
+      border: solid;
+      clip-path: polygon(0% 0, 50% 100%, 100% 0%);
+      background-color: #333;
+    }
+
+    .rotate-hide {
+      transform: rotate(-90deg);
+      display: inline-block;
+    }
+
+    .d-table-row {
+      display: table-row;
+    }
+
+    .colaps-body h4 {
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .ico-plus,
+    .ico-minus {
+      cursor: pointer;
+      content: "";
+      position: relative;
+      width: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .ico-plus:before,
+    .ico-minus:before {
+      content: "";
+      position: absolute;
+      background-color: #333;
+      width: 16px;
+      height: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 2px;
+    }
+
+    .ico-plus:after {
+      content: "";
+      position: absolute;
+      background-color: #333;
+      width: 16px;
+      height: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(90deg);
+      border-radius: 2px;
+    }
+
+    .ico-minus:after {
+      content: "";
+      position: absolute;
+      background-color: #333;
+      width: 16px;
+      height: 4px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 2px;
+    }
+
+    .ico-plus:after,
+    .ico-minus:after {
+      transition: all 0.2s ease-in 0s;
+    }
+
+    .colaps-body h4 {
+      margin-bottom: 4px;
+      margin-top: 12px;
+    }
+
+    .d-none {
+      display: none;
+    }
+
+    .progress,
+    .progress-stacked {
+      height: 20px;
+      margin: 10px 0;
+      font-size: 12px;
+      color: #fff;
+      background-color: rgb(47, 141, 255);
+      border-radius: 6px;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, .2);
+      display: flex;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      color: rgb(255, 255, 255);
+      text-align: center;
+      white-space: nowrap;
+      background-color: #5cb85c;
+    }
+
+    .bg-danger {
+      background-color: #d9534f;
+    }
+
+    .bg-warning {
+      background-color: #fcf8e3
+    }
+
+    .alert-danger {
+      color: #a94442;
+    }
+
+    .alert-warning {
+      color: #8a6d3b
+    }
+
+    .alert-info .alert-link {
+      color: #245269
+    }
+  </style>
+  <style>
+    .accordion-menu {
+      display: block;
+      margin-top: 30px;
+      border-radius: 5px;
+    }
+
+    .accordion-menu h2 {
+      font-size: 18px;
+      line-height: 34px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      display: block;
+      margin: 0;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .accordion-menu p {
+      color: rgba(48, 69, 92, 0.8);
+      font-size: 15px;
+      line-height: 26px;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+      max-height: 800px;
+      opacity: 1;
+      transform: translate(0, 0);
+      margin-top: 14px;
+      z-index: 2;
+    }
+
+    .accordion-menu ul {
+      list-style: none;
+      perspective: 900;
+      padding: 0 20px 10px;
+      margin: 0;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2),
+        0 2px 2px 0 rgba(255, 255, 255, 0.19);
+    }
+
+    .accordion-menu ul li {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      padding-bottom: 4px;
+      padding-top: 18px;
+      border-top: 1px dotted #dce7eb;
+    }
+
+    .accordion-menu ul li:nth-child(1) {
+      border: none;
+    }
+
+    .accordion-menu ul li:last-of-type {
+      padding-bottom: 0;
+    }
+
+    .accordion-menu ul li .arrow {
+      position: absolute;
+      transform: translate(-6px, 0);
+      margin-top: 16px;
+      right: 0;
+    }
+
+    .accordion-menu ul li .fas {
+      color: #3d556e;
+      font-size: 15px;
+      margin-right: 10px;
+    }
+
+    .accordion-menu ul li .arrow:before,
+    ul li .arrow:after {
+      content: "";
+      position: absolute;
+      background-color: #3d556e;
+      width: 3px;
+      height: 9px;
+    }
+
+    .accordion-menu ul li .arrow:before {
+      transform: translate(-2px, 0) rotate(45deg);
+    }
+
+    .accordion-menu ul li .arrow:after {
+      transform: translate(2px, 0) rotate(-45deg);
+    }
+
+    .accordion-menu ul li input[type=checkbox] {
+      position: absolute;
+      cursor: pointer;
+      width: 100%;
+      height: 40px;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .accordion-menu ul li input[type=checkbox]:checked~div {
+      margin-top: 0;
+      /* max-height: 0; */
+      display: none;
+      opacity: 0;
+      transform: translate(0, 50%);
+    }
+
+    .accordion-menu ul li input[type=checkbox]:checked~.arrow:before {
+      transform: translate(2px, 0) rotate(45deg);
+    }
+
+    .accordion-menu ul li input[type=checkbox]:checked~.arrow:after {
+      transform: translate(-2px, 0) rotate(-45deg);
+    }
+
+    .transition,
+    div,
+    ul li .arrow:before,
+    ul li .arrow:after {
+      transition: all 0.25s ease-in-out;
+    }
+
+    .flipIn,
+    h1,
+    ul li {
+      animation: flipdown 0.5s ease both;
+    }
+
+    .no-select,
+    h2 {
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+    }
+
+    @keyframes flipdown {
+      0% {
+        opacity: 0;
+        transform-origin: top center;
+        transform: rotateX(-90deg);
+      }
+
+      5% {
+        opacity: 1;
+      }
+
+      80% {
+        transform: rotateX(8deg);
+      }
+
+      83% {
+        transform: rotateX(6deg);
+      }
+
+      92% {
+        transform: rotateX(-3deg);
+      }
+
+      100% {
+        transform-origin: top center;
+        transform: rotateX(0deg);
+      }
+    }
+  </style>
+  <script>
+    function myFunction(x) {
+      var id = $(x).attr('id');
+      var contentid = id + 'content'
+      var content = document.getElementById(contentid);
+      if (content.style.display === "none") {
+        content.style.display = "block";
+      } else {
+        content.style.display = "none";
+      }
+      console.log("inside myfunction: ", id, contentid);
+      x.classList.toggle("fa-minus");
+    }
+  </script>
+
+  <script>
+
+    function colapser(c) {
+      var id = c.getAttribute('id');
+      var dataId = id + 'contentWrap'
+      var contentWrap = document.getElementById(dataId);
+      if (contentWrap.style.display === "none") {
+        contentWrap.style.display = "block";
+      } else if (contentWrap.style.display === "block") {
+        contentWrap.style.display = "none";
+      } else { contentWrap.style.display = "block"; }
+      // console.log("inside myfunction: ",id, dataId);
+      c.classList.toggle("ico-minus");
+    }
+    function colapaudit(c){
+      var id = c.getAttribute('id');
+      var dataId = id + 'contentWrap1Audit'
+      var contentWrap = document.getElementById(dataId);
+      if (contentWrap.style.display === "none") {
+        contentWrap.style.display = "block";
+      } else if (contentWrap.style.display === "block") {
+        contentWrap.style.display = "none";
+      } else { contentWrap.style.display = "block"; }
+
+      var dataId1 = id + 'contentWrap1Audit1'
+      var contentWrap1 = document.getElementById(dataId1);
+      if(contentWrap1) {
+        if (contentWrap1.style.display === "none") {
+          contentWrap1.style.display = "block";
+        } else if (contentWrap1.style.display === "block") {
+          contentWrap1.style.display = "none";
+        } else { contentWrap1.style.display = "block"; }
+      }
+
+      var dataId2 = id + 'contentWrap1Audit2'
+      var contentWrap2 = document.getElementById(dataId2);
+      if (contentWrap2) {
+        if (contentWrap2.style.display === "none") {
+          contentWrap2.style.display = "block";
+        } else if (contentWrap2.style.display === "block") {
+          contentWrap2.style.display = "none";
+        } else { contentWrap2.style.display = "block"; }
+      }
+
+      var dataId3 = id + 'contentWrap1Audit3'
+      var contentWrap3 = document.getElementById(dataId3);
+      if (contentWrap3) {
+        if (contentWrap3.style.display === "none") {
+          contentWrap3.style.display = "block";
+        } else if (contentWrap3.style.display === "block") {
+          contentWrap3.style.display = "none";
+        } else { contentWrap3.style.display = "block"; }
+      }
+      // console.log("inside myfunction: ",id, dataId);
+      c.classList.toggle("ico-minus");
+
+    }
+    function colapsTr(t) {
+      var tr = t.getAttribute('id');
+      //alert(tr);
+      var itData = document.querySelectorAll('[data-thb-id="' + tr + '"]');
+      for (var i = 0; i < itData.length; i++) {
+        itData[i].classList.toggle("d-none");
+      }
+      //   if (itData.classList.contains('d-none')) {
+      //     itData.classList.toggle("d-none");
+      //     // alert('1');
+      //   } 
+      //   else { itData.classList.toggle('d-none');
+      //   // alert('2'); 
+      // }
+
+
+      // console.log("inside myfunction: ",id, dataId);
+      t.classList.toggle("rotate-hide");
+    }
+
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script type="text/javascript">
+    function generatePDF() {
+      var cols = document.getElementsByClassName('displayclass');
+      for (i = 0; i < cols.length; i++) {
+        cols[i].style.display = 'block';
+      }
+      var collections = document.getElementsByClassName("fa")
+      for (let j = 0; j < collections.length; j++) {
+        collections[j].classList.toggle("fa-minus")
+      }
+      document.getElementById("main").style.marginTop = "10px";
+      const element = document.getElementById("main");
+      //document.getElementById("displayclass").style.display = "block";
+      //document.getElementById("displayclass").style.border = "1px solid black";
+      var opt = {
+        margin: 0.7,
+        //margin: 0.7,
+        //margin:1,
+        filename: "SSP-Report.pdf",
+        header: '',
+        footer: ''
+      }
+      html2pdf().set(opt).from(element).save();
+    }
+    function downloadPDF() {
+      var x = document.getElementById("displayclass");
+      generatePDF();
+      setTimeout(function () { window.location = window.location; }, 3000);
+    }
+  </script>
+</head>
+
+<body>
+  <!-- <input type="button" onclick="btnclick()" value="Print" style="position: fixed; right:0" id="btnPrint" /> -->
+  <div id="main" style="background-color: #fff;">
+    <div class="main">
+      <div class="content-border">
+        <div style="margin-bottom: 20px 0 0 0; text-align: center;">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAACaCAYAAADfGvD2AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAADNVpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTktMDktMjBUMTU6NDE6NDAtMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE5LTA5LTI1VDEzOjI1OjIyLTA0OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDE5LTA5LTI1VDEzOjI1OjIyLTA0OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3NDk4OTc4MERGQjkxMUU5OEZEMUE1MDAxNjFFMEJCNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo3NDk4OTc4MURGQjkxMUU5OEZEMUE1MDAxNjFFMEJCNiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjMwNjQxNjBkLTgyZDYtN2Q0YS1iZDcxLWMwZDg2NDg4Y2MxYyI+IDxwaG90b3Nob3A6VGV4dExheWVycz4gPHJkZjpCYWc+IDxyZGY6bGkgcGhvdG9zaG9wOkxheWVyTmFtZT0ibGFicyIgcGhvdG9zaG9wOkxheWVyVGV4dD0ibGFicyIvPiA8cmRmOmxpIHBob3Rvc2hvcDpMYXllck5hbWU9ImgzbyIgcGhvdG9zaG9wOkxheWVyVGV4dD0iaDNvIi8+IDxyZGY6bGkgcGhvdG9zaG9wOkxheWVyTmFtZT0ibGFicyIgcGhvdG9zaG9wOkxheWVyVGV4dD0ibGFicyIvPiA8L3JkZjpCYWc+IDwvcGhvdG9zaG9wOlRleHRMYXllcnM+IDxwaG90b3Nob3A6RG9jdW1lbnRBbmNlc3RvcnM+IDxyZGY6QmFnPiA8cmRmOmxpPjBFNDU3MTA5NjdCQUQyMkFBRkFENzJGMDZBN0ZDRjVBPC9yZGY6bGk+IDxyZGY6bGk+MTgzQjRDNzNFRUZBMDc3N0RERDkwNDc0MDYwM0YxMEI8L3JkZjpsaT4gPHJkZjpsaT4yODEwQkExQkFGMzczNDAxNjc1QUExMjc4NkVCMzRFRDwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDowMWJmOWFiNi05YmM5LWJkNGUtOWJhZi0wN2M4YjAwYzMyODk8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6OTkyYzY4Y2MtNWMyYi1mYjRhLThkNmUtZGJmNzA3NjgzMjJiPC9yZGY6bGk+IDxyZGY6bGk+YWRvYmU6ZG9jaWQ6cGhvdG9zaG9wOmFiZDA0ZWJlLTFlM2UtOTc0NC04YWIxLWEwMTBhYzQxOWIwMTwvcmRmOmxpPiA8cmRmOmxpPmFkb2JlOmRvY2lkOnBob3Rvc2hvcDpjN2E0NjRiZS0xYTU0LTExZTgtYWYzYS1jM2QzYjM3ZmM2Nzc8L3JkZjpsaT4gPHJkZjpsaT5hZG9iZTpkb2NpZDpwaG90b3Nob3A6ZTIyN2RhMzMtZjk2YS04ZDQ5LTg1ODEtMDc1OTA1ZWVhZDc0PC9yZGY6bGk+IDxyZGY6bGk+eG1wLmRpZDoyMzM1OTU5ZC00NjkwLTIzNGYtOTljNC1kMTA3ZDAwMTVkNzg8L3JkZjpsaT4gPHJkZjpsaT54bXAuZGlkOjMwNjQxNjBkLTgyZDYtN2Q0YS1iZDcxLWMwZDg2NDg4Y2MxYzwvcmRmOmxpPiA8cmRmOmxpPnhtcC5kaWQ6Mzg0OGUxY2UtMjZkYi0yNjRmLTgwN2YtZjFkMmY3NTQ5OTBmPC9yZGY6bGk+IDxyZGY6bGk+eG1wLmRpZDo1NzNmYjFhMC00ZjM0LTE2NDYtYjI1YS03YzNiZDhlZTU1ZjE8L3JkZjpsaT4gPHJkZjpsaT54bXAuZGlkOjVBODI3MDdBREEwRDExRTlCRjJDQzE2NkNDODRENUZCPC9yZGY6bGk+IDxyZGY6bGk+eG1wLmRpZDo2NTBhNmJmZC0xNmE4LTJiNDMtYjA0ZS00YmFjM2U0NjFmNDI8L3JkZjpsaT4gPHJkZjpsaT54bXAuZGlkOjgwNDRlNGE1LTRlODYtM2U0OS04NWM0LTgxYjI5YTFhM2EwZDwvcmRmOmxpPiA8cmRmOmxpPnhtcC5kaWQ6ODJmMmVlNDItMjgyMy04NDQ2LWIxYTItOTNjMmRjZWE4MDVhPC9yZGY6bGk+IDxyZGY6bGk+eG1wLmRpZDo4YTE0ZmRhYS01ZDQ2LWFjNDgtOGUwMC0xMzM2M2Y3NzUxNWI8L3JkZjpsaT4gPC9yZGY6QmFnPiA8L3Bob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDozMDY0MTYwZC04MmQ2LTdkNGEtYmQ3MS1jMGQ4NjQ4OGNjMWMiIHN0RXZ0OndoZW49IjIwMTktMDktMjBUMTU6NDE6NDAtMDQ6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5k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"
+            style="height:50px" alt="H3O Labs">
+          <div>
+            <p>Smart Cybersecurity Solutions</p>
+          </div>
+        </div>
+        <div class="cover-title">
+          <div>System Security Plan Report</div>
+          <div>{{ info_system[0].sys_name }}</div>
+        </div>
+        <div class="cover-descriptions">
+          <div>Information System: {{ info_system[0].abbreviation }}</div>
+        </div>
+        <div class="cover-date">
+          <div> {{ formatReportDate(version_date) }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="content">
+        <div style="page-break-before: always;"></div>
+        <div class="accordion-menu">
+          <ul>
+            {% if "1" in chapter_keys %}
+            <li>
+              <h2 style="cursor: unset;">Prepared By</h2>
+              <div>
+                <table id="content_1" class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center">
+                        Identification of Organization that Prepared this Document
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">Organization Name</td>
+                      <td>{{ prepared_by.org_name }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{ prepared_by.address_a }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Suite/Room/Building</td>
+                      <td>{{ prepared_by.address_b }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{ prepared_by.city }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{ prepared_by.state }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">zip</td>
+                      <td>{{ prepared_by.zip }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "2" in chapter_keys %}
+            <li>
+              <h2 style="cursor: unset;">Prepared For</h2>
+              <div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center">
+                        Identification of Service Provider
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">Organization Name</td>
+                      <td>{{ prepared_for.org_name }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{ prepared_for.address_a }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Suite/Room/Building</td>
+                      <td>{{ prepared_for.address_b }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{ prepared_for.city }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{ prepared_for.state }}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">zip</td>
+                      <td>{{ prepared_for.zip }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <h2 class="title">Template Revision History</h2>
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th class="text-center">
+                          date
+                        </th>
+                        <th class="text-center">
+                          Description
+                        </th>
+                        <th class="text-center">
+                          Version of SSP
+                        </th>
+                        <th class="text-center">
+                          Author
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </li>
+            {% endif %}
+            {% if "3" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 1: Information System Name and Title</h2>
+              <div>
+                <div class="desc-note">
+                  This System Security Plan provides an overview of the security requirements for
+                  <b>{{ info_system[0].sys_name }}</b> and describes the controls in place or planned for implementation
+                  to provide
+                  a level of security appropriate for the information to be transmitted, processed or stored by
+                  the system. Information security is vital to our critical infrastructure and its effective
+                  performance and protection is a key component of our national security program. Proper
+                  management of information technology systems is essential to ensure the confidentiality,
+                  integrity and availability of the data transmitted, processed or stored by the
+                  <b>{{ info_system[0].abbreviation }}</b> information system. The security safeguards implemented for
+                  the
+                  <b>{{ info_system[0].abbreviation }}</b> system meet the policy and control requirements set forth in
+                  this System
+                  Security Plan. All systems are subject to monitoring consistent with applicable laws,
+                  regulations, agency policies, procedures and practices.
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Unique Identifier
+                      </th>
+                      <th class="text-center">
+                        Information System Name
+                      </th>
+                      <th class="text-center">
+                        Information System Abbreviation
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">{{ info_system[0].idnt }}</td>
+                      <td class="text-center">{{ info_system[0].sys_name }}</td>
+                      <td class="text-center">{{ info_system[0].abbreviation }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "4" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 2: System Categorization and Digital Identity Determination</h2>
+              <div>
+                <div class="desc-note">
+                  The overall information system sensitivity categorization is recorded in Table 2 1 Security
+                  Categorization that follows. Directions for attaching the FIPS 199 document may be found in the
+                  following section: ATTACHMENT 10 - FIPS 199.
+                </div>
+                {% if "4.1" in chapter_keys %}
+                <div id="4.1.1">
+                  <h2 class="title mt-42">2.1 System Sensitivity Level</h2>
+                  <div style="page-break-before: always;"></div>
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <td class="custom-td border-td">System Sensitivity Level</td>
+                      <td>{{sensitivity_level}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Information Type (Use only information types from NIST SP 800-60, Volumes I and II
+                        as amended)
+                      </th>
+                      <th class="text-center">
+                        NIST 800-60 identifier for Associated Information Type
+                      </th>
+                      <th class="text-center">
+                        Confidentiality
+                      </th>
+                      <th class="text-center">
+                        Integrity
+                      </th>
+                      <th class="text-center">
+                        Availability
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for category in sensitivity_cat %}
+                    <tr>
+                      <td>{{category.type}}</td>
+                      <td>{{category.idnt}}</td>
+                      <td>{{category.confidentiality}}</td>
+                      <td>{{category.integrity}}</td>
+                      <td>{{category.availability}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "4.2" in chapter_keys %}
+                <div class="mt-42">
+                  <div>
+                    <h2 id="4.1" class="title">2.2 Security Objectives Categorization (FIPS 199)</h3>
+                      <div class="desc-note">
+                        Based on the information provided in Table 2 2 Sensitivity Categorization of Information Types,
+                        for the ({{info_system[0].abbreviation}}), default to the high-water mark for the Information
+                        Types as identified in Table
+                        2 3 Security Impact Level below.
+                      </div>
+                      <table class="table table-striped table-bordered">
+                        <thead>
+                          <tr>
+                            <th class="text-center">
+                              Security Objective
+                            </th>
+                            <th class="text-center">
+                              Low, Moderate or High
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="custom-td white-border">Confidentiality</td>
+                            <td>{{security_objectives_cat.confidentiality}}</td>
+                          </tr>
+                          <tr>
+                            <td class="custom-td white-border">Integrity</td>
+                            <td>{{security_objectives_cat.integrity}}</td>
+                          </tr>
+                          <tr>
+                            <td class="custom-td">Availability</td>
+                            <td>{{security_objectives_cat.availability}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                  <div class="desc-note">
+                    Through review and analysis, it has been determined that the baseline security categorization
+                    for the <b>{{info_system[0].abbreviation}}</b> system is listed in the Table 2 4 Baseline Security
+                    Configuration
+                    that follows.
+                  </div>
+                  <div class="selected-system">
+                    <table class="table table-striped table-bordered">
+                      <tr>
+                        <td class="custom-td border-td">Security Categorization</td>
+                        <td>{{baseline_security_cat}}</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="desc-note">Using this categorization, in conjunction with the risk assessment and any
+                    unique security requirements, we have established the security controls for this system, as
+                    detailed in this SSP.
+                  </div>
+                </div>
+                {% endif %}
+                {% if "4.3" in chapter_keys %}
+                <div>
+                  <h2 id="4.2" class="title">2.3 Digital Identity Determination</h2>
+                  <div class="desc-note">
+                    The digital identity information may be found in ATTACHMENT 3 – Digital Identity Worksheet Note:
+                    NIST SP 800-63-3, Digital Identity Guidelines, does not recognize the four Levels of Assurance
+                    model previously used by federal agencies and described in OMB M-04-04, instead requiring
+                    agencies to individually select levels corresponding to each function being performed.
+                  </div>
+                  <div class="selected-system">
+                    <table class="table table-striped table-bordered">
+                      <tr>
+                        <td class="custom-td border-td">The digital identity level is</td>
+                        <td>{{ digital_identity_level }}</td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="desc-note">Additional digital identity information can be found in Section 15
+                    Attachments Digital Identity Level Selection.
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "5" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 3: System Owner and Contact Information</h2>
+              <div>
+                <div class="desc-note">
+                  The following individual is identified as the system owner or functional proponent/advocate for this
+                  system.
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center">
+                        Information System Owner Information
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">First Name</td>
+                      <td>{{owner.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Last Name</td>
+                      <td>{{owner.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Title</td>
+                      <td>{{owner.title}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Organization / Company</td>
+                      <td>{{getValue(owner.organization)}} </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{owner.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{owner.city}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{owner.state}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">zip</td>
+                      <td>{{owner.zip}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Phone</td>
+                      <td>{{owner.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Email</td>
+                      <td>{{owner.email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "5" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 4: Authorizing Official</h2>
+              <div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div class="">The Authorizing Official is determined by the path that the CSP is using to obtain an
+                    authorization. JAB P-ATO: FedRAMP, JAB, as comprised of member representatives from the General
+                    Services Administration (GSA), Department of Defense (DoD) and Department of Homeland Security (DHS)
+                    Agency Authority to Operate (ATO): Agency Authorizing Official name, title and contact information.
+                  </div>
+                </div>
+                <div class="desc-note">The Authorizing Official (AO) or Designated Approving Authority (DAA) for this
+                  information system is the Insert AO information as instructed above.
+                </div>
+              </div>
+            </li>
+            {% endif %}
+            {% if "6" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 5: Designated Contacts</h2>
+              <div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div class="">AOs should use the following section to identify points of contact that understand the
+                    technical implementations of the identified cloud system. AOs should edit, add, or modify the
+                    contacts
+                    in this section as they see fit.
+                  </div>
+                </div>
+                <div class="desc-note">The following individual(s) identified below possess in-depth knowledge of this
+                  system and/or its functions and operation.
+                </div>
+                {% if "6.1" in chapter_keys %}
+                <h2 class="title mt-42">5.1 Information System Management Point of Contact</h2>
+                <table class="table table-striped table-bordered mb-42">
+                  <!-- <thead>
+                        <tr>
+                          <th colspan="3" class="text-center">
+                            Information System Management Point of Contact
+                          </th>
+                        </tr>
+                      </thead> -->
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">First Name</td>
+                      <td>{{poc_mgmt.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Last Name</td>
+                      <td>{{poc_mgmt.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Title</td>
+                      <td>{{poc_mgmt.title}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Organization / Company</td>
+                      <td>{{getValue(poc_mgmt.organization)}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{poc_mgmt.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{poc_mgmt.city}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{poc_mgmt.state}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">zip</td>
+                      <td>{{poc_mgmt.zip}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Phone</td>
+                      <td>{{poc_mgmt.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Email</td>
+                      <td>{{poc_mgmt.email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "6.2" in chapter_keys %}
+                <div style="page-break-before:always"></div>
+                <h2 class="title mt-42">5.2 Information System Technical Point of Contact</h2>
+                <table class="table table-striped table-bordered">
+                  <!-- <thead>
+                        <tr>
+                          <th colspan="3" class="text-center">
+                           Information System Technical Point of Contact
+                          </th>
+                        </tr>
+                      </thead> -->
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">First Name</td>
+                      <td>{{poc_tech.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Last Name</td>
+                      <td>{{poc_tech.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Title</td>
+                      <td>{{poc_tech.title}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Organization / Company</td>
+                      <td>{{getValue(poc_tech.organization)}} </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{poc_tech.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{poc_tech.city}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{poc_tech.state}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">zip</td>
+                      <td>{{poc_tech.zip}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Phone</td>
+                      <td>{{poc_tech.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Email</td>
+                      <td>{{poc_tech.email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "6.3" in chapter_keys %}
+                <div style="page-break-before:always"></div>
+                <h2 class="title mt-42">5.3 Point of Contact</h2>
+                <table class="table table-striped table-bordered">
+                  <!-- <thead>
+                        <tr>
+                          <th colspan="3" class="text-center">
+                           Point of Contact
+                          </th>
+                        </tr>
+                      </thead> -->
+                  <tbody>
+                    {% for contact in contacts %}
+                    <tr>
+                      <td class="custom-td white-border">First Name</td>
+                      <td>{{contact.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Last Name</td>
+                      <td>{{contact.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Title</td>
+                      <td>{{contact.title}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Organization / Company</td>
+                      <td>{{contact.organization}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{contact.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{contact.city}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{contact.state}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">zip</td>
+                      <td>{{contact.zip}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Phone</td>
+                      <td>{{contact.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Email</td>
+                      <td>{{contact.email}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "7" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 6: Security Responsibility</h2>
+              <div>
+                <div class="desc-note">The Information System Security Officers (ISSO), or their equivalent, identified
+                  below, have been appointed in writing and are deemed to have significant cyber and operational role
+                  responsibilities.</div>
+                {% if "7.1" in chapter_keys %}
+                <h2 class="title mt-42">6.1 CSP Name Internal ISSO (or Equivalent) Point of Contact</h2>
+                <table class="table table-striped table-bordered mb-42">
+                  <!-- <thead>
+              <tr>
+                <th colspan="3" class="text-center">
+                 CSP Name Internal ISSO (or Equivalent) Point of Contact
+                </th>
+              </tr>
+            </thead> -->
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">First Name</td>
+                      <td>{{poc_isso.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Last Name</td>
+                      <td>{{poc_isso.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Title</td>
+                      <td>{{poc_isso.title}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Organization / Company</td>
+                      <td>{{getValue(poc_isso.organization)}} </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{poc_isso.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{poc_isso.city}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{poc_isso.state}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">zip</td>
+                      <td>{{poc_isso.zip}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Phone</td>
+                      <td>{{poc_isso.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Email</td>
+                      <td>{{poc_isso.email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "7.2" in chapter_keys %}
+                <h2 class="title mt-42">6.2 AO Point of Contact</h2>
+                <table class="table table-striped table-bordered">
+                  <!-- <thead>
+              <tr>
+                <th colspan="3" class="text-center">
+                 AO Point of Contact
+                </th>
+              </tr>
+            </thead> -->
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">First Name</td>
+                      <td>{{poc_ao.first_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Last Name</td>
+                      <td>{{poc_ao.last_name}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Title</td>
+                      <td>{{poc_ao.title}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Organization / Company</td>
+                      <td>{{getValue(poc_ao.organization)}} </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Street Address</td>
+                      <td>{{poc_ao.address}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">City</td>
+                      <td>{{poc_ao.city}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">State</td>
+                      <td>{{poc_ao.state}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">zip</td>
+                      <td>{{poc_ao.zip}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Phone</td>
+                      <td>{{poc_ao.phone}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Email</td>
+                      <td>{{poc_ao.email}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "8" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 7: Information System Operational Status</h2>
+              <div>
+                <div class="desc-note">The system is currently in the life-cycle phase shown in Table 7 1 System Status
+                  that follows. (Only operational systems can be granted an ATO).</div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center">
+                        System Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">Operational</td>
+                      <td>The system is operating and in production.</td>
+                      <td>
+                        {% if operational_status.status == "operational" %}
+                        {{operational_status.status}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Under Development</td>
+                      <td>The system is being designed, developed, or implemented</td>
+                      <td>
+                        {% if operational_status.status == "under_development" %}
+                        {{operational_status.status}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Major Modification</td>
+                      <td>
+                        The system is undergoing a major change, development, or transition.
+                      </td>
+                      <td>
+                        {% if operational_status.status == "major_modification" %}
+                        {{operational_status.status}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Retired</td>
+                      <td>
+                        The system is Retired.
+                      </td>
+                      <td>
+                        {% if operational_status.status == "retired" %}
+                        {{operational_status.status}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Other - Explain</td>
+                      <td>
+                        {{operational_status.explain}}
+                      </td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>Select as many status indicators as apply. If more than one status is selected, list which
+                    components of the system are covered under each status indicator.</div>
+                </div>
+              </div>
+            </li>
+            {% endif %}
+            {% if "9" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 8: Information System Type</h2>
+              <div>
+                <div class="desc-note">The <b>({{info_system[0].abbreviation}})</b> makes use of unique managed service
+                  provider architecture layer(s)</div>
+                {% if "9.1" in chapter_keys %}
+                <h2 id="4.9" class="title mt-42">8.1 Service Models</h2>
+                <div class="desc-note">Information systems, particularly those based on cloud architecture models, are
+                  made up of different service layers. Below are some questions that help the system owner determine if
+                  their system is a cloud followed by specific questions to help the system owner determine the type of
+                  cloud.</div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Question?
+                      </th>
+                      <th class="text-center">
+                        Answer (Yes/No)
+                      </th>
+                      <th class="text-center">
+                        Conclusion
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">Does the system use virtual machines?</td>
+                      <td class="text-center">{{system_is_cloud.virtual_machine}}</td>
+                      <td class="text-center">A no response means that system is most likely not a cloud.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">Does the system have the ability to expand its capacity to meet customer
+                        demand?</td>
+                      <td class="text-center">{{system_is_cloud.expand_capacity}}</td>
+                      <td class="text-center">A no response means that the system is most likely not a cloud. </td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">Does the system allow the consumer to build anything other than servers?
+                      </td>
+                      <td class="text-center">{{system_is_cloud.consumer_build}}</td>
+                      <td class="text-center">A no response means that the system is an IaaS. A yes response means that
+                        the system is either a PaaS or a SaaS.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">Does the system offer the ability to create databases?</td>
+                      <td class="text-center">{{system_is_cloud.create_databases}}</td>
+                      <td class="text-center">A yes response means that the system is a PaaS.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">Does the system offer various developer toolkits and APIs?</td>
+                      <td class="text-center">{{system_is_cloud.developer_toolkits}}</td>
+                      <td class="text-center">A yes response means that the system is a PaaS.</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center">Does the system offer only applications that are available by obtaining a
+                        login?</td>
+                      <td class="text-center">{{system_is_cloud.obtaining_login}}</td>
+                      <td class="text-center">A yes response means that system is a SaaS. A no response means that the
+                        system is either a PaaS or an IaaS.</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "9.2" in chapter_keys %}
+                <div class="desc-note">Note: Refer to NIST SP 800-145 for information on cloud computing architecture
+                  models.</div>
+                <h2 id="4.10" class="title mt-42">8.2 Cloud Deployment Models</h2>
+                <div class="desc-note">Information systems are made up of different deployment models. The deployment
+                  models of the ({{info_system[0].abbreviation}}) that are defined in this SSP and are not leveraged by
+                  any other FedRAMP Authorizations, are indicated in Table 8 2 Cloud Deployment Model Represented in
+                  this
+                  SSP that follows.</div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>Check deployment model that applies.</div>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th colspan="3" class="text-center">
+                        Service Provider Cloud Deployment Model
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">Public</td>
+                      <td>Cloud services and infrastructure supporting multiple organizations and agency clients</td>
+                      <td>{{checkIfInclude(sp_deployment_model.model, "public")}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Private</td>
+                      <td>Cloud services and infrastructure dedicated to a specific organization/agency and no other
+                        clients</td>
+                      <td>{{checkIfInclude(sp_deployment_model.model, "private")}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Government Only Community</td>
+                      <td>Cloud services and infrastructure shared by several organizations/agencies with same policy
+                        and
+                        compliance considerations</td>
+                      <td>{{checkIfInclude(sp_deployment_model.model, "government")}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Hybrid</td>
+                      <td>
+                        <div> (e.g., cloud services and infrastructure that provides private cloud for secured
+                          applications and data where required and public cloud for other applications and data)</div>
+                        <div>{{sp_deployment_model.explain}}</div>
+                      </td>
+                      <td>{{checkIfInclude(sp_deployment_model.model, "hybrid")}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "9.3" in chapter_keys %}
+                <div class="desc-note">The layers of the <b>({{info_system[0].abbreviation}})</b> defined in this SSP
+                  are
+                  indicated in Table 8 1 Service Layers Represented in this SSP that follows.</div>
+                <div style="page-break-before:always"></div>
+                <h2 id="4.101" class="title mt-42">8.3 Service Provider Architecture Layers</h2>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th id="" colspan="3" class="text-center">
+                        Service Provider Architecture Layers
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="custom-td white-border">Software as a Service (SaaS)</td>
+                      <td>
+                        Major Application
+                      </td>
+                      <td> {{checkIfInclude(sp_architecture_layers.layers, "saas")}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Platform as a Service (PaaS)</td>
+                      <td>
+                        Major Application
+                      </td>
+                      <td>{{checkIfInclude(sp_architecture_layers.layers, "paas")}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td white-border">Infrastructure as a Service (IaaS)</td>
+                      <td>General Support System</td>
+                      <td>{{checkIfInclude(sp_architecture_layers.layers, "iaas")}}</td>
+                    </tr>
+                    <tr>
+                      <td class="custom-td">Other - Explain</td>
+                      <td>{{sp_architecture_layers.explain}}</td>
+                      <td>{{checkIfExistValue(sp_architecture_layers.explain)}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "10" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 9: Leveraged Authorization</h2>
+              <div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>The FedRAMP program qualifies different service layers for Authorizations. One or multiple
+                    service
+                    layers can be qualified in one System Security Plan. If a lower level layer has been granted an
+                    Authorization and another higher-level layer represented by this SSP plans to leverage a lower
+                    layer’s
+                    Authorization, this System Security Plan must clearly state that intention. If an information system
+                    does not leverage any pre-existing Authorizations, write “None” in the first column of the table
+                    that
+                    follows. Add as many rows as necessary in the table that follows.</div>
+                </div>
+                <div class="desc-note">The <b>{{info_system[0].abbreviation}}</b> leverages a pre-existing FedRAMP
+                  Authorization. FedRAMP Authorizations leveraged by this <b>({{info_system[0].abbreviation}})</b> are
+                  listed in Table 8 3 Leveraged Authorizations that follows.</div>
+
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Leveraged Information System Name
+                      </th>
+                      <th class="text-center">
+                        Leveraged Service Provider Owner
+                      </th>
+                      <th class="text-center">
+                        Date Granted
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for row in leveraged_systems %}
+                    <tr>
+                      <td class="text-center">{{row.name}}</td>
+                      <td class="text-center">{{row.owner}}</td>
+                      <td class="text-center">{{row.date_granted}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% if "General System Description" in chapter_keys %}
+                <h2 id="5" class="title">General System Description</h2>
+                <div class="desc-note">This section includes a general description of the
+                  <b>({{info_system[0].abbreviation}})</b>.
+                </div>
+                {% endif %}
+                {% if "System Function or Purpose" in chapter_keys %}
+                <h2 id="5.1" class="title mt-42">System Function or Purpose</h2>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>Instruction: In the space that follows, describe the purpose and functions of this system.</div>
+                </div>
+                <div class="selected-system">
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <td class="custom-td border-td">System Function or Purpose</td>
+                      <td>{{function_purpose}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <div style="page-break-before:always;"></div>
+                {% endif %}
+                {% if "Information System Components and Boundaries" in chapter_keys %}
+                <h2 id="5.2" class="title">Information System Components and Boundaries</h2>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>Instruction: In the space that follows, provide an explicit definition of the system’s
+                    Authorization Boundary. Provide a diagram that portrays this Authorization Boundary and all its
+                    connections and components, including the means for monitoring and controlling communications at the
+                    external boundary and at key internal boundaries within the system. Address all components and
+                    managed
+                    interfaces of the information system authorized for operation (e.g., routers, firewalls). </div>
+                  <div>The diagram must include a predominant border drawn around all system components and services
+                    included in the authorization boundary. The diagram must be easy to read and understand. </div>
+                  </br>
+                  <div>Formal names of components as they are known at the service provider organization in functional
+                    specifications, configuration guides, other documents and live configurations shall be named on the
+                    diagram and described. Components identified in the Boundary diagram should be consistent with the
+                    Network diagram and the inventory(ies). Provide a key to symbols used. Ensure consistency between
+                    the
+                    boundary and network diagrams and respective descriptions (Section 9.4) and the appropriate Security
+                    Controls [AC-20, CA-3(1)]. </div>
+                  </br>
+                  <div>Additional FedRAMP Requirements and Guidance: Guidance: See the FedRAMP Documents page under Key
+                    Cloud Service Provider (CSP) Documents> FedRAMP Authorization Boundary Guidance
+                    https://www.fedramp.gov/documents/</div>
+                </div>
+                <div class="desc-note">A detailed and explicit definition of the system authorization boundary diagram
+                  is
+                  represented in Figure 9 1 Authorization Boundary Diagram below.</div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        File
+                      </th>
+                      <th class="text-center">
+                        File Name
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for text in comp_boundries %}
+                    <tr>
+                      <td class="text-center">
+                        <img width="25" height="25" src="{{ getFileIcon(text) }}">
+                      </td>
+                      <td class="text-center">{{text}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+                {% if "types of users" in chapter_keys %}
+                <h2 id="5.3" class="title">Types of Users</h2>
+                <div class="desc-note">All personnel have their status categorized with a sensitivity level in
+                  accordance
+                  with PS-2. Personnel (employees or contractors) of service providers are considered Internal Users.
+                  All
+                  other users are considered External Users. User privileges (authorization permission after
+                  authentication takes place) are described in Table 9 1 Personnel Roles and Privileges that follows
+                </div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>For an External User, write “Not Applicable” in the Sensitivity Level Column. This table must
+                    include all roles including systems administrators and database administrators as a role types.
+                    (Also
+                    include web server administrators, network administrators and firewall administrators if these
+                    individuals have the ability to configure a device or host that could impact the CSP service
+                    offering.) </div>
+                  </br>
+                  <div>This table must also include whether these roles are fulfilled by foreign nationals or systems
+                    outside the United States.</div>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Role
+                      </th>
+                      <th class="text-center">
+                        Internal or External
+                      </th>
+                      <th class="text-center">
+                        Privileged (P), Non-Privileged (NP), or No Logical Access (NLA)
+                      </th>
+                      <th class="text-center">
+                        Sensitivity Level
+                      </th>
+                      <th class="text-center">
+                        Authorized Privileges
+                      </th>
+                      <th class="text-center">
+                        Functions Performed
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for user_type in types_of_users %}
+                    <tr>
+                      <td class="text-center">{{user_type.role}}</td>
+                      <td class="text-center">{{user_type.int_ext}}</td>
+                      <td class="text-center">{{user_type.privilege}}</td>
+                      <td class="text-center">{{user_type.sensitivity}}</td>
+                      <td class="text-center">{{user_type.authorization}}</td>
+                      <td class="text-center">{{user_type.functions}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div class="desc-note">There are currently *number* internal personnel and *number* external personnel.
+                  Within one year, it is anticipated that there will be *number* internal personnel and *number*
+                  external
+                  personnel.</div>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "11" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 10: Network Architecture</h2>
+              <div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>Insert a network architectural diagram in the space that follows. Ensure that the following items
+                    are labeled on the diagram: hostnames, Domain Name System (DNS) servers, DHCP servers,
+                    authentication
+                    and access control servers, directory servers, firewalls, routers, switches, database servers, major
+                    applications, storage, Internet connectivity providers, telecom circuit numbers, network interfaces
+                    and numbers, VLANs. Major security components should be represented. If necessary, include multiple
+                    network diagrams.</div>
+                </div>
+                <div class="desc-note">Assessors should be able to easily map hardware, software and network inventories
+                  back to this diagram.
+                  The logical network topology is shown in Figure 9 2 Network Diagram mapping the data flow between
+                  components.
+                  The following Figure 9 2 Network Diagram(s) provides a visual depiction of the system network
+                  components
+                  that constitute Enter Information System Abbreviation.
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        File
+                      </th>
+                      <th class="text-center">
+                        File Name
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for file in general_description_files %}
+                    <tr>
+                      <td class="text-center">
+                        <img width="25" height="25" src="{{ getFileIcon(file.type) }}">
+                      </td>
+                      <td class="text-center">{{file.text}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "12" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 11: System Environment & Inventory</h2>
+              <div>
+                <div class="desc-note">Directions for attaching the FedRAMP Inventory Workbook may be found in the
+                  following section: ATTACHMENT 13 – FedRAMP Inventory Workbook.
+                </div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div class="mb-42">In the space that follows, provide a general description of the technical
+                    system environment. Include information about all system environments that are used, e.g.,
+                    production environment, test environment, staging or QA environments. Include the specific
+                    location of the alternate, backup and operational facilities.
+                  </div>
+                  <div>In your description, also include a reference to Attachment 13, the system's Integrated
+                    Inventory Workbook, which should provide a complete listing of the system's components
+                    (operating systems/infrastructure, web applications/software, and databases). The Integrated
+                    Inventory Workbook should be maintained and updated monthly by the CSP, as part of
+                    continuous monitoring efforts. Instructions for completing the Integrated Inventory Workbook
+                    are provided within the Integrated Inventory Workbook.
+                  </div>
+                </div>
+                <div class="selected-system">
+                  <table class="table table-striped table-bordered">
+                    <tr>
+                      <td class="custom-td border-td">System Function or Purpose</td>
+                      <td>{{function_purpose}}</td>
+                    </tr>
+                  </table>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Ip
+                      </th>
+                      <th class="text-center">
+                        Host
+                      </th>
+                      <th class="text-center">
+                        OS
+                      </th>
+                      <th class="text-center">
+                        Mac Address
+                      </th>
+                      <th class="text-center">
+                        Status
+                      </th>
+                      <th class="text-center">
+                        Validate
+                      </th>
+                      <th class="text-center">
+                        Remediate
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for device in devices_list %}
+                    <tr>
+                      <td class="text-center">{{device.ip_addr}}</td>
+                      <td class="text-center">{{device.host_name}}</td>
+                      <td class="text-center">{{device.os_type}}</td>
+                      <td class="text-center">{{device.mac_address}}</td>
+                      <td class="text-center">{{device.connectable_info}} {{device.touched_at}}</td>
+                      <td class="text-center">
+                        {% if device.validate %}&#10004;{% else %}&times;{% endif %}
+                      </td>
+                      <td class="text-center">
+                        {% if device.remediate %}&#10004;{% else %}&times;{% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "18" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 12: Compliance</h2>
+              <div>
+                {% if compliance_type == 'devices' %}
+                <h2 style="margin: 20px 0; ">Target Compliance</h2>
+                <div id="characteristics">
+                  <div>
+                    <table>
+                      <tr>
+                        <th colspan="2" style="vertical-align: middle;">Target(s)</th>
+
+                      </tr>
+
+                      {% for device in compliance_list %}
+                      <tr>
+                        <td style="width:180px">{{renderCollapsibleIcon(device)}} {{ device.ip_addr }}</td>
+                        <td>
+                          {{renderProgress(device.passPercentage,device.failPercentage,device.otherPercentage)}}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td colspan="2">
+                          {{renderDeviceOuterdiv(device)}}
+                          <table>
+                            <tr>
+                              <td style="width:170px">Host Name</td>
+                              <td>{{ device.host_name }}</td>
+                            </tr>
+                            <tr>
+                              <td style="width:170px">IP Address</td>
+                              <td>{{ device.ip_addr }}</td>
+                            </tr>
+                            <tr>
+                              <td style="width:170px">Mac Address</td>
+                              <td>{{ device.mac_address }}</td>
+                            </tr>
+                            <tr>
+                              <td style="width:170px">Operating System</td>
+                              <td>{{ device.os_info.PRETTY_NAME }}</td>
+                            </tr>
+                            <tr>
+                              <td style="vertical-align: middle;">STIG(s) Applied</td>
+                              <td>{{ device.stig }}</td>
+                            </tr>
+                            <tr>
+                              <td style="vertical-align: middle;">Score</td>
+                              <td>{{renderProgress(device.passPercentage,device.failPercentage,device.otherPercentage)}}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td colspan="2">
+                                {% if device.status=="NON-COMPLIANT" %}
+                                {% if device.failCount>0%}
+                                <div class="alert alert-danger">
+                                  <strong>{{device.failCount}} control(s) need review.</strong>
+                                </div>
+                                {%else%}
+                                <div class="alert alert-warning">
+                                  <strong>{{device.otherCount}} control(s) need review.</strong>
+                                </div>
+                                {% endif %}
+                                {% endif %}
+                                <div>
+                                  {{renderPassFailOtherProgress(device.passCount,device.failCount,device.otherCount,device.totalCount)}}
+                                </div>
+                              </td>
+                            </tr>
+                          </table>
+
+
+                          <table>
+                            <thead>
+                              <tr style="background-color: #595E60; color: #ffffff;">
+                                <th class="text-center py-3" style="width: 120px;">Controls</th>
+                                <th class="text-center py-3" style="text-align: center;">Information</th>
+                                <th class="text-center py-3" style="width: 120px;">Severity</th>
+                                <th class="text-center py-3" style="width: 120px;">Result</th>
+                                <th class="text-center py-3" style="width: 150px;">Last Scan Time</th>
+                              </tr>
+                            </thead>
+
+                            <tbody>
+
+
+
+                              {% if device.controls %}
+
+                              {% for control in device.controls %}
+                              {{renderControl(device, control)}}
+
+                              {% endfor %}
+                              {% endif %}
+
+                            </tbody>
+                          </table>
+                  </div>
+                  </td>
+                  </tr>
+
+                  {% endfor %}
+                  </table>
+                </div>
+                {% endif %}
+                {% if compliance_type == 'controls' %}
+                <h2 id="10" class="title">Controls Compliance</h2>
+                <table class="treetable table table-striped table-bordered">
+                  <thead>
+                    <tr style="background-color: #595E60; color: #ffffff;">
+                      <th class="text-center" style="width: 20%;">
+                        Control
+                      </th>
+                      <th class="text-center" style="width: 20%;">
+                        Device
+                      </th>
+                      <th style="text-align: center;">Vulnerability Title</th>
+                      <th class="text-center" style="width: 120px;">
+                        Severity
+                      </th>
+                      <th class="text-center" style="width: 120px;">
+                        Status
+                      </th>
+                      <th class="text-center" style="width: 150px;">
+                        Last Scan Time
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for control in compliance_controls %}
+                    {{renderComplianceControl(control)}}
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "13" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 13: Data Flow</h2>
+              <div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>Instruction: In the space that follows, describe the flow of data in and out of system boundaries
+                    and insert a data flow diagram. Describe protections implemented at all entry and exit points in the
+                    data flow as well as internal controls between customer and project users. Include data flows for
+                    privileged and non-privileged authentication/authorization to the system for internal and external
+                    users. If necessary, include multiple data flow diagrams.</div>
+                </div>
+                <div class="desc-note">The data flow in and out of the system boundaries is represented in Figure 10 1
+                  Data Flow Diagram below.</div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        File
+                      </th>
+                      <th class="text-center">
+                        File Name
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for file in data_form_files %}
+                    <tr>
+                      <td class="text-center">
+                        <img width="25" height="25" src="{{getFileIcon(file.type)}}">
+                      </td>
+                      <td class="text-center">{{file.text}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "14" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 14: Ports, Protocols and Services</h2>
+              <div>
+                <div class="desc-note">Table 10 1 Ports, Protocols and Services below lists the ports, protocols and
+                  services enabled in this information system.</div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div> In the column labeled “Used By” please indicate the components of the information system that
+                    make
+                    use of the ports, protocols and services. In the column labeled “Purpose” indicate the purpose for
+                    the
+                    service (e.g., system logging, HTTP redirector, load balancing). This table should be consistent
+                    with
+                    CM-6 and CM-7. You must fill out this table, even if you are leveraging a pre-existing FedRAMP
+                    Authorization. Add more rows as needed.</div>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Ports (TCP/UDP)*
+                      </th>
+                      <th class="text-center">
+                        Protocols
+                      </th>
+                      <th class="text-center">
+                        Services
+                      </th>
+                      <th class="text-center">
+                        Purpose
+                      </th>
+                      <th class="text-center">
+                        Used By
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for service in ports_protocols_services %}
+                    <tr>
+                      <td>{{service.port}}</td>
+                      <td>{{service.protocol}}</td>
+                      <td>{{service.service}}</td>
+                      <td>{{service.purpose}}</td>
+                      <td>{{service.used_by}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <p>* Transmission Control Protocol (TCP), User Diagram Protocol (UDP)</p>
+                {% if "System Interconnections" in chapter_keys %}
+                <h2 id="7" class="title">System Interconnections</h2>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>List all interconnected systems. Provide the IP address and interface identifier (eth0, eth1,
+                    eth2)
+                    for the CSP system that provides the connection. Name the external organization and the IP address
+                    of
+                    the external system. Provide a point of contact and phone number for the external organization. For
+                    Connection Security indicate how the connection is being secured. For Data Direction, indicate which
+                    direction the packets are flowing. For Information Being Transmitted, describe what type of data is
+                    being transmitted. If a dedicated telecom line is used, indicate the circuit number. Add additional
+                    rows as needed. This table must be consistent with Table 13 3 CA-3 Authorized Connections.
+                    Additional
+                    FedRAMP Requirements and Guidance: Guidance: See the FedRAMP Documents page under Key Cloud Service
+                    Provider (CSP) Documents> FedRAMP Authorization Boundary Guidance</div>
+                </div>
+                <div class="desc-note">The Table 11 1 System Interconnections below is consistent with Table 13 3 CA-3
+                  Authorized Connections.</div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        SP* IP Address and Interface
+                      </th>
+                      <th class="text-center">
+                        External Organization Name
+                      </th>
+                      <th class="text-center">
+                        IP Address of System
+                      </th>
+                      <th class="text-center">
+                        External Point of Contact
+                      </th>
+                      <th class="text-center">
+                        Phone Number
+                      </th>
+                      <th class="text-center">
+                        Connection Security (IPSec VPN, SSL, Certificates, Secure File Transfer, etc.) **
+                      </th>
+                      <th class="text-center">
+                        Data Direction (incoming, outgoing, or both)
+                      </th>
+                      <th class="text-center">
+                        Information Being Transmitted
+                      </th>
+                      <th class="text-center">
+                        Port or Circuit Numbers
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for connection in authorized_connections %}
+                    <tr>
+                      <td>{{connection.spip}}</td>
+                      <td>{{connection.org_name}}</td>
+                      <td>{{connection.org_ip}}</td>
+                      <td>{{connection.poc}}</td>
+                      <td>{{connection.poc_phone}}</td>
+                      <td>{{connection.connection_sec}}</td>
+                      <td>{{connection.data_direction}}</td>
+                      <td>{{connection.information}}</td>
+                      <td>{{connection.port}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div class="desc-note">
+                  <div>*Service Processor</div>
+                  <div>**Internet Protocol Security (IPSec), Virtual Private Network (VPN), Secure Sockets Layer (SSL)
+                  </div>
+                </div>
+                {% endif %}
+                {% if "Laws, Regulations, Standards and Guidance" in chapter_keys %}
+                <h2 id="8" class="title">6. Laws, Regulations, Standards and Guidance</h2>
+                <div class="desc-note">A summary of FedRAMP Laws and Regulations is included in ATTACHMENT 12 – FedRAMP
+                  Laws and Regulations.</div>
+                {% endif %}
+                {% if "Applicable Laws and Regulations" in chapter_keys %}
+                <h2 id="8.1" class="title mt-42">Applicable Laws and Regulations</h2>
+                <div class="desc-note">The FedRAMP Laws and Regulations can be found on this web page:
+                  https://www.fedramp.gov/templates/. Table 12 1 Information System Name Laws and Regulations includes
+                  additional laws and regulations specific to Information System Name.</div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>The information system name is a repeatable field that is populated when the Title Page is
+                    completed. If the CSP does not have additional laws and regulations that it must follow, please
+                    specify "N/A" in the table.</div>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Identification Number
+                      </th>
+                      <th class="text-center">
+                        Title
+                      </th>
+                      <th class="text-center">
+                        Date
+                      </th>
+                      <th class="text-center">
+                        Link
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for law in laws_regulations %}
+                    <tr>
+                      <td>{{law.number}}</td>
+                      <td>{{law.title}}</td>
+                      <td>{{law.date}}</td>
+                      <td>{{law.link}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+              </div>
+            </li>
+            {% endif %}
+            {% if "15" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 15: Applicable Standards & Guidance</h2>
+              <div>
+                <div class="desc-note">The FedRAMP Standards and Guidance be found on this web page:
+                  https://www.fedramp.gov/templates/
+                  Table 12 2 Information System Name Standards and Guidance includes in this section any additional
+                  standards and guidance specific to Information System Name.</div>
+                <div class="blue-continer">
+                  <div class="title-blue">Instruction:</div>
+                  <div>The information system name is a repeatable field that is populated when the Title Page is
+                    completed. If the CSP does not have additional standards or guidance that it must follow, please
+                    specify "N/A" in the table.</div>
+                </div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Identification Number
+                      </th>
+                      <th class="text-center">
+                        Title
+                      </th>
+                      <th class="text-center">
+                        Date
+                      </th>
+                      <th class="text-center">
+                        Link
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#Identification Number</td>
+                      <td>#Title</td>
+                      <td>#Date</td>
+                      <td>#Link</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+            {% if "16" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 16: Framework Controls</h2>
+              <div>
+                <div class="desc-note">
+                  <div>Security controls must meet minimum security control baseline requirements. Upon categorizing a
+                    system as Low, Moderate, or High sensitivity in accordance with FIPS 199, the corresponding security
+                    control baseline standards apply. Some of the control baselines have enhanced controls which are
+                    indicated in parentheses.</div>
+                  <div>Security controls that are representative of the sensitivity of Enter Information System
+                    Abbreviation are described in the sections that follow. Security controls that are designated as
+                    “Not
+                    Selected” or “Withdrawn by NIST” are not described unless they have additional FedRAMP controls.
+                    Guidance on how to describe the implemented standard can be found in NIST 800-53, Rev 4. Control
+                    enhancements are marked in parentheses in the sensitivity columns.</div>
+                  <div>Systems that are categorized as FIPS 199 Low use the controls designated as Low, systems
+                    categorized as FIPS 199 Moderate use the controls designated as Moderate and systems categorized as
+                    FIPS 199 High use the controls designated as High. A summary of which security standards pertain to
+                    which sensitivity level is found in Table 13 1 Summary of Required Security Controls that follows.
+                  </div>
+                </div>
+                <table class="table table-striped table-bordered" style="width: 100%">
+                  <thead>
+                    <tr>
+                      {% if "16.1" in chapter_keys %}
+                      <th class="text-center">
+                        
+                      </th>
+                      {% endif %}
+                      
+                      <th class="text-center" style="width: 15%">
+                        Status
+                      </th>
+                      <th class="text-center" style="width: 10%">
+                        Implementation
+                      </th>
+                      <!-- <th class="text-center" style="width: 10%">
+                        Type
+                      </th> -->
+                      <th class="text-center" style="width: 10%">
+                        Number
+                      </th>
+                      <th class="text-center" style="width: 30%">
+                        Title
+                      </th>
+                      <th class="text-center" style="width: 10%">
+                        Impact
+                      </th>
+                      <th class="text-center" style="width: 10%">
+                        Priority
+                      </th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for control in NIST_controls %}
+                    <!-- <tr style=" page-break-inside: avoid;"> -->
+                    <!-- <table class="table table-striped table-bordered" style="width: 100%"> -->
+                    <tr style=" page-break-inside: avoid;">
+                      {% if "16.1" in chapter_keys %}
+                      <td>
+                        {% if control.NIST80053R4CheckControl %}
+                        {% if control.NIST80053R4CheckControl.AuditControls %}
+                        {% if control.NIST80053R4CheckControl.AuditControls.length>0 %}
+                        {{renderCollapsibleAuditIcon(control.NIST80053R4CheckControl.AuditControls[0].control_number)}}
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
+
+                        {% if control.NIST80053R5CheckControl %}
+                        {% if control.NIST80053R5CheckControl.AuditR5Controls %}
+                        {% if control.NIST80053R5CheckControl.AuditR5Controls.length>0 %}
+                        {{renderCollapsibleAuditIcon(control.NIST80053R5CheckControl.AuditR5Controls[0].control_number)}}
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
+
+                      </td>
+                      {% endif %}
+                      <td class="text-center" style="width: 15%">
+                        {% if selectedFramework =='NIST80053R4' %}
+                        {% if control.NIST80053R4CheckControl %}
+                        {% if control.NIST80053R4CheckControl.AuditControls %}
+                        {% if control.NIST80053R4CheckControl.AuditControls[0].data.compliant_status %}
+                        <a class="{{ getAuditClass(control.NIST80053R4CheckControl.AuditControls[0].data.compliant_status)}}"
+                          href="#audit-{{control.NIST80053R4CheckControl.AuditControls[0].control_number}}">{{control.NIST80053R4CheckControl.AuditControls[0].data.compliant_status
+                          }}</a>
+                        {% endif %}
+                        {% else %}
+                        <span class="btn-gray" href=""> incomplete </span>
+                        {% endif %}
+                        {% else %}
+                        <span class="btn-gray" href=""> incomplete </span>
+                        {% endif %}
+                        {% endif %}
+                        {% if selectedFramework =='NIST80053R5' %}
+                        {% if control.NIST80053R5CheckControl %}
+                        {% if control.NIST80053R5CheckControl.AuditR5Controls %}
+                        {% if control.NIST80053R5CheckControl.AuditR5Controls[0].data.compliant_status %}
+                        <a class="{{ getAuditClass(control.NIST80053R5CheckControl.AuditR5Controls[0].data.compliant_status)}}"
+                          href="#audit-{{control.NIST80053R5CheckControl.AuditR5Controls[0].control_number}}">{{control.NIST80053R5CheckControl.AuditR5Controls[0].data.compliant_status
+                          }}</a>
+                        {% endif %}
+                        {% else %}
+                        <span class="btn-gray" href=""> incomplete </span>
+                        {% endif %}
+                        {% else %}
+                        <span class="btn-gray" href=""> incomplete </span>
+                        {% endif %}
+                        {% endif %}
+                      </td>
+                      <td class="text-center" style="width: 10%">
+                        {% if selectedFramework =='NIST80053R4' %}
+                        {% if control.NIST80053R4CheckControl.implementation.status %}
+                        {{ control.NIST80053R4CheckControl.implementation.status }}
+                        {% else %}
+                        ---
+                        {% endif %}
+                        {% endif %}
+                        {% if selectedFramework =='NIST80053R5' %}
+                        {% if control.NIST80053R5CheckControl.implementation.status %}
+                        {{ control.NIST80053R5CheckControl.implementation.status }}
+                        {% else %}
+                        ---
+                        {% endif %}
+                        {% endif %}
+                      </td>
+                      <!-- <td class="text-center" style="width: 10%"></td> -->
+                      <td class="text-center" style="width: 10%"><b>{{ control.number }}</b></td>
+                      <td class="text-center" style="width: 30%">{{ control.title }}</td>
+                      <td class="text-center" style="width: 10%">
+                        {% if control.baseline_impact %}
+                        {{ control.baseline_impact }}
+                        {% else %}
+                        NA
+                        {% endif %}
+                      </td>
+                      <td class="text-center" style="width: 10%">
+                        {% if control.priority %}
+                        {{ control.priority }}
+                        {% else %}
+                        NA
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <!-- </tbody>
+                          </table>                   -->
+                    <!-- </tr> -->
+                    {% if "16.1" in chapter_keys %}
+                    {% if control.NIST80053R4CheckControl.AuditControls[0].user_name %}
+                    <tr style=" page-break-inside: avoid;">
+                      <td colspan="7">
+                        {{renderAuditOuterdiv(control.NIST80053R4CheckControl.AuditControls[0].control_number)}}
+                        <p><span><b> Reviewer : </b> {{ control.NIST80053R4CheckControl.AuditControls[0].user_name }}</span>
+                          <span style="margin-left: 10px;"><b> Review Date : </b> {{
+                            DateFormatted(control.NIST80053R4CheckControl.AuditControls[0].date) }}</span>
+                          <span style="margin-left: 10px;"><a class="{{ getAuditClass(control.NIST80053R4CheckControl.AuditControls[0].data.compliant_status)}}"
+                            href="#audit-{{control.NIST80053R4CheckControl.AuditControls[0].control_number}}">{{
+                              getAuditStatus(control.NIST80053R4CheckControl.AuditControls[0].data.compliant_status) }}</a></span>
+                        </p>
+                        {% if control.NIST80053R4CheckControl.AuditControls[0].data.description %}
+                        <p><span><b> Override Explanation :
+                        </b>{{control.NIST80053R4CheckControl.AuditControls[0].data.description}}</span></p>
+                        {% endif %}
+                        <p>
+                          <span><b> ASSESSMENT OBJECTIVE :</b></span>
+                        </p>
+                        <div>
+                          {{renderAuditNew(control.NIST80053R4CheckControl.AuditControls[0].data, true)}}
+                        </div>
+                      </div>
+                      </td>
+                    </tr>
+                  {% endif %}
+
+                    <!-- {% if control.NIST80053R4CheckControl.AuditControls[0].data.potentialAssessments %}
+                    {% for assessment in control.NIST80053R4CheckControl.AuditControls[0].data.potentialAssessments %}
+                    <tr style=" page-break-inside: avoid;">
+                      <td colspan="7" class="text-center">
+                        <b>{{assessment.name}} : </b>
+                        {% if assessment.others_explanation %}
+                        {{ assessment.others_explanation }}
+                        {% else %}
+                        {{assessment.title}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %} -->
+
+                    {% if control.NIST80053R5CheckControl.AuditR5Controls[0].user_name %}
+                    <tr style=" page-break-inside: avoid;">
+                      <td colspan="7">
+                        {{renderAuditOuterdiv(control.NIST80053R5CheckControl.AuditR5Controls[0].control_number)}}
+                        <p><span><b> Reviewer : </b> {{ control.NIST80053R5CheckControl.AuditR5Controls[0].user_name }}</span>
+                          <span style="margin-left: 10px;"><b> Review Date : </b> {{
+                            DateFormatted(control.NIST80053R5CheckControl.AuditR5Controls[0].date) }}</span>
+                          <span style="margin-left: 10px;"><a class="{{ getAuditClass(control.NIST80053R5CheckControl.AuditR5Controls[0].data.compliant_status)}}"
+                            href="#audit-{{control.NIST80053R5CheckControl.AuditR5Controls[0].control_number}}">{{
+                              getAuditStatus(control.NIST80053R5CheckControl.AuditR5Controls[0].data.compliant_status) }}</a></span>
+                        </p>
+                        {% if control.NIST80053R5CheckControl.AuditR5Controls[0].data.description %}
+                        <p><span><b> Override Explanation :
+                        </b>{{control.NIST80053R5CheckControl.AuditR5Controls[0].data.description}}</span></p>
+                        {% endif %}
+                        <p>
+                          <span><b> ASSESSMENT OBJECTIVE :</b></span>
+                        </p>
+                        <div>
+                          {{renderAuditNew(control.NIST80053R5CheckControl.AuditR5Controls[0].data, true)}}
+                        </div>
+                      </div>
+                      </td>
+                    </tr>
+                  {% endif %}
+                    
+                    <!-- {% if control.NIST80053R5CheckControl.AuditR5Controls[0].data.potentialAssessments.length>0 %}
+                    {% for assessment in control.NIST80053R5CheckControl.AuditR5Controls[0].data.potentialAssessments %}
+
+                    <tr style=" page-break-inside: avoid;">
+                      <td colspan="7" class="text-center">
+                        <b>{{assessment.name}} : </b>
+                        {% if assessment.others_explanation %}
+                        {{ assessment.others_explanation }}
+                        {% else %}
+                        {{assessment.title}}
+                        {% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %} -->
+                    {% endif %}
+                    {% endfor %}
+                  </tbody>
+                </table>
+
+                <div class="desc-note">Note: The -1 Controls (AC-1, AU-1, SC-1, etc.) cannot be inherited and must be
+                  provided in some way by the service provider.</div>
+                <div class="blue-continer ">
+                  <div class="title-blue">Instruction:</div>
+                  <div>In the sections that follow, describe the information security control as it is implemented on
+                    the
+                    system. All controls originate from a system or from a business process. It is important to describe
+                    where the control originates from so that it is clear whose responsibility it is to implement,
+                    manage
+                    and monitor the control. In some cases, the responsibility is shared by a CSP and by the customer.
+                    Use
+                    the definitions in the table that follows to indicate where each security control originates from.
+                  </div>
+                  <div>Throughout this SSP, policies and procedures must be explicitly referenced (title and date or
+                    version) so that it is clear which document is being referred to. Section numbers or similar
+                    mechanisms should allow the reviewer to easily find the reference. </div>
+                  <div>For SaaS and PaaS systems that are inheriting controls from an IaaS (or anything lower in the
+                    stack), the “inherited” check box must be checked and the implementation description must simply say
+                    “inherited.” FedRAMP reviewers will determine whether the control-set is appropriate or not.</div>
+                  <div>In Section 13, the NIST term "organization defined" must be interpreted as being the CSP's
+                    responsibility unless otherwise indicated. In some cases the JAB has chosen to define or provide
+                    parameters, in others they have left the decision up to the CSP.</div>
+                  <div>Please note: CSPs should not modify the control requirement text, including the parameter
+                    assignment instructions and additional FedRAMP requirements. CSP responses must be documented in the
+                    “Control Summary Information” and “What is the solution and how is it implemented?” tables.</div>
+                </div>
+                <div class="desc-note mt-42">The definitions in Table 13 2. Control Origination and Definitions indicate
+                  where each security control originates.</div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Control Origination
+                      </th>
+                      <th class="text-center">
+                        Definition
+                      </th>
+                      <th class="text-center">
+                        Example
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for origin in control_originations %}
+                    <tr>
+                      <td>{{origin.origination}}</td>
+                      <td>{{origin.definition}}</td>
+                      <td>{{origin.example}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <div class="desc mb-42">
+                  <div>*Hyper Text Transport Protocol (http)</div>
+                  <div>Responsible Role indicates the role of CSP employee who can best respond to questions about the
+                    particular control that is described.</div>
+                </div>
+              </div>
+            </li>
+            {% endif %}
+            {% if "17" in chapter_keys %}
+            <li>
+              <input type="checkbox" checked>
+              <i class="arrow"></i>
+              <h2>Section 17: Custom Controls</h2>
+              <div>
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="text-center">
+                        Name
+                      </th>
+                      <th class="text-center">
+                        OS
+                      </th>
+                      <th class="text-center">
+                        Sensitivity Level
+                      </th>
+                      <th class="text-center">
+                        Created
+                      </th>
+                      <th class="text-center">
+                        Validate
+                      </th>
+                      <th class="text-center">
+                        Remediate
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for control in custom_controls %}
+                    <tr>
+                      <td class="text-center">{{control.name}}</td>
+                      <td class="text-center">{{control.os}}</td>
+                      <td class="text-center">{{control.sensitivity_level}}</td>
+                      <td class="text-center">{{getCustomSecurityDate(control.createdAt)}}</td>
+                      <td class="text-center">
+                        {% if control.validate %}&#10004;{% else %}&times;{% endif %}
+                      </td>
+                      <td class="text-center">
+                        {% if control.remediate %}&#10004;{% else %}&times;{% endif %}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+        <!-- <div>
+            <h2 class="title">Table of contents</h2>
+            <ul id="myUL">
+              <li><a href="#1">Prepared By</a></li>
+              <li><a href="#2">Prepared For</a></li>
+              <li><a href="#3">Information System Name/Title</a></li>
+              <li><a href="#4">Information System Categorization</a>
+                <ul>
+                  <li><a href="#4.1.1">System Sensitivity Level</a></li>
+                  <li><a href="#4.1">Security Objectives Categorization (FIPS 199)</a></li>
+                  <li><a href="#4.2">Digital Identity Determination</a></li>
+                </ul>
+              </li>
+              <li><a href="#4.3">Information System Owner</a></li>
+              <li><a href="#4.5">Other Designated Contacts</a>
+                <ul>
+                  <li><a href="#4.5">Management Point of Contact</a></li>
+                  <li><a href="#4.5">Technical Point of Contact</a></li>
+                  <li><a href="#4.5">Other Contact</li>
+                </ul>
+              </li>
+              <li><a href="#4.6">Assignment of security responsibility</a>
+                <ul>
+                  <li><a href="#4.6">CSP Name Internal ISSO (or Equivalent) Point of Contact</a></li>
+                  <li><a href="#4.6">AO Point of Contact</a></li>
+                </ul>
+              </li>
+              <li><a href="#4.7">Information System Operational Status</a></li>
+              <li><a href="#4.8">Information System Type</a>
+                <ul>
+                  <li><a href="#4.9">Service Models</a></li>
+                  <li><a href="#4.10">Cloud Deployment Models</a></li>
+                  <li><a href="#4.101">Service provider architecture layers</a></li>
+                </ul>
+              </li>
+              <li><a href="#4.11">Leveraged Authorizations</a></li>
+              <li><a href="#5.4">Network Architecture</a></li>
+              <li><a href="#6">System Environment And Inventory</a></li>
+              <li><a href="#complianceoverview">Compliance Overview</a></li>
+              <li><a href="#6.1">Data Flow</a></li>
+              <li><a href="#6.2">Ports, Protocols and Services</a></li>
+              <li><a href="#8.2">Applicable Standards and Guidance</a></li>
+              <li><a href="#9">Framework Controls</a></li>
+              <li><a href="#10">Custom Controls</a></li>
+            </ul>
+          </div> -->
+
+        <footer class="footer">
+          <section class="footer-content">
+            <section class="footer-legend">
+              <div class="footer-page-numbers"></div>
+              <div class="footer-copy">© {{getCurrentYear()}} {{group.appName}} All rights reserved.</div>
+            </section>
+            <section class="footer-logo">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAB99pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMTktMDktMDhUMTM6MTU6MTktMDQ6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDE5LTEwLTE2VDIxOjM0OjM2KzIwOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDE5LTEwLTE2VDIxOjM0OjM2KzIwOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0NzhENjg1N0YwN0UxMUU5QTQ1Nzk4OEFCOUY2MkE1MiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo0NzhENjg1OEYwN0UxMUU5QTQ1Nzk4OEFCOUY2MkE1MiIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjIyOTQzN2IxLWQ1YmItODg0ZC04ZDg4LWIyMjExMzM0ODZkMSI+IDxwaG90b3Nob3A6RG9jdW1lbnRBbmNlc3RvcnM+IDxyZGY6QmFnPiA8cmRmOmxpPnhtcC5kaWQ6NUE4MjcwN0FEQTBEMTFFOUJGMkNDMTY2Q0M4NEQ1RkI8L3JkZjpsaT4gPC9yZGY6QmFnPiA8L3Bob3Rvc2hvcDpEb2N1bWVudEFuY2VzdG9ycz4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDoyMjk0MzdiMS1kNWJiLTg4NGQtOGQ4OC1iMjIxMTMzNDg2ZDEiIHN0RXZ0OndoZW49IjIwMTktMDktMDhUMTM6MTU6MTktMDQ6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAyMDE4IChXaW5kb3dzKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NzE1OTkyZDQtOTljZi0wNjQxLWE4NDItZDVlNTM0NGY5YzZlIiBzdEV2dDp3aGVuPSIyMDE5LTA5LTA4VDIzOjEzOjU1LTA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgQ0MgMjAxOCAoV2luZG93cykiIHN0RXZ0OmNoYW5nZWQ9Ii8iLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjdjYzRmNmYyLTJiM2MtNGE0MC1iMDk5LThiYmY3ZThjNTcwNSIgc3RFdnQ6d2hlbj0iMjAxOS0wOS0xOFQxMTowODo1MC0wNDowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9w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" />
+            </section>
+          </section>
+          <div class="footer-copy" style="text-align: center;">
+            {{ renderVersion() }}
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

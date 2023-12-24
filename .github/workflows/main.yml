@@ -1,0 +1,42 @@
+# This is the name of your workflow.
+name: Node.js Build Workflow
+
+# This workflow is triggered on pushes to the repository.
+on:
+  push:
+    branches:
+      - main
+      
+# Here are the jobs that the workflow will run.
+jobs:
+  # This job is named "build".
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job.
+    steps:
+    # This step checks out a copy of your repository.
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # This step sets up a version of Node.js to use.
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.16.0' # You can specify another version if needed.
+
+    - name: Install Wine
+      run: |
+        sudo dpkg --add-architecture i386
+        sudo apt update
+        sudo apt install -y wine64
+
+    # This step installs your project's dependencies.
+    - name: Install dependencies
+      run: npm install
+
+    # If your project uses Electron, this step packages the Electron app.
+    # This step assumes you have electron-builder set up in your project.
+    - name: Build Electron app
+      run: npm run electron:build:win_linux

@@ -1,0 +1,197 @@
+@import '@/mixins.scss';
+
+
+.menuSimply {
+  position: fixed;
+    z-index: 999;
+    width: 100%;
+  min-height: rem(64);
+  padding: rem(5) rem(20);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  background: $dark-gray-6;
+  border-bottom: 1px solid $border;
+
+  &__logo {
+    display: block;
+    padding-top: rem(15);
+    padding-bottom: rem(15);
+    margin-right: rem(30);
+    line-height: 1;
+    height: rem(64);
+    white-space: nowrap;
+
+    &__letter {
+      float: left;
+
+      svg {
+        margin-right: 1.4rem;
+        height: rem(30);
+        width: rem(30);
+        path:nth-child(1) {
+          stroke: #ff2222d8;
+          fill: #f1222cf6;
+          stroke-width: 1px;
+          
+        }
+        path:nth-child(2) {
+          stroke: #ff2222d8;
+          fill: #f1222cf6;
+          stroke-width: 1px;
+          
+          animation-delay: 2s;
+        }
+        path:nth-child(3) {
+          stroke: #ff2222d8;
+          fill: #f1222cf6;
+          stroke-width: 1px;
+          
+          animation-delay: 4s;
+        }
+    
+        @keyframes logoAnimate {
+          0% {
+            stroke: #ff3e3ed8;
+            fill: #ff3e48f6;
+          }
+          50% {
+            stroke: #f81818;
+            fill: #f7303a;
+          }
+          100% {
+            stroke: #db0404;
+            fill: #d1010b;
+          }
+        }
+      }
+    }
+    &__name {
+      font-weight: 700;
+      color: $white;
+      font-size: 1.8rem;
+      margin-left: rem(40);
+      padding: 3px;
+    }
+    &__descr {
+      color: $gray-4;
+      margin-left: rem(40);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  // white theme
+  &__white {
+    background: $white;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+
+  // white theme
+  &__gray {
+    background: $gray-1;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+  &__red {
+    background: $red;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $white;
+        }
+      }
+    }
+  }
+  &__antiquewhite {
+    background: antiquewhite;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+  &__aqua {
+    background: aqua;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+  &__orange {
+    background: $orange;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+  &__blue {
+    background: $blue-dark;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $dark;
+        }
+      }
+    }
+  }
+  &__green {
+    background: $green;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $white;
+        }
+      }
+    }
+  }
+  &__purple {
+    background: $purple;
+
+    .menuSimply {
+      &__logo {
+        &__name {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .menuSimply {
+    border-color: $dark-gray-4;
+  }
+}
+
+

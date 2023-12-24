@@ -1,0 +1,81 @@
+@import '@/mixins.scss';
+
+.footer {
+  margin: 0 auto;
+  padding: 0 rem(15) rem(15);
+
+  @media (max-width: $sm-max-width) {
+    padding: 0 rem(16) !important;
+  }
+}
+
+.footerInner {
+  border-top: 1px solid $border;
+  padding-top: 0.7rem;
+}
+
+.release {
+  float: right;
+}
+
+.logo {
+  font-size: rem(15);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  svg {
+    margin-right: rem(6);
+    height: rem(20);
+    width: rem(20);
+    path:nth-child(1) {
+      stroke: #ff2222d8;
+      fill: #f1222cf6;
+      stroke-width: 1px;
+      
+    }
+    path:nth-child(2) {
+      stroke: #ff2222d8;
+      fill: #f1222cf6;
+      stroke-width: 1px;
+   
+    }
+    path:nth-child(3) {
+      stroke: #ff2222d8;
+      fill: #f1222cf6;
+      stroke-width: 1px;
+      
+    }
+
+    @keyframes logoAnimate {
+      0% {
+        stroke: #ff3e3ed8;
+        fill: #ff3e48f6;
+      }
+      50% {
+        stroke: #f81818;
+        fill: #f7303a;
+      }
+      100% {
+        stroke: #db0404;
+        fill: #d1010b;
+      }
+    }
+  }
+  strong {
+    top: -0.3rem;
+    position: relative;
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .footer {
+    color: $dark-gray-1;
+  }
+
+  .footerInner {
+    border-top: 1px solid $dark-gray-4;
+  }
+}

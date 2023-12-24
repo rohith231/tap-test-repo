@@ -1,0 +1,8 @@
+// Import mixins
+@import '@/mixins.scss';
+
+.ant-avatar {
+  // border-radius: 10px !important;
+  width: 40px  !important;
+  height: 40px !important;
+}

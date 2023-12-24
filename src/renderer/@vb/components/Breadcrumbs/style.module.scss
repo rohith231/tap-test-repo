@@ -1,0 +1,49 @@
+@import '@/mixins.scss';
+
+.breadcrumbs {
+  padding: rem(20) rem(30) 0;
+  font-size: rem(17);
+}
+
+.current {
+  color: $black;
+}
+
+.arrow {
+  display: inline-block;
+  margin: 0 rem(10);
+  &:after {
+    display: inline-block;
+    content: '·';
+    color: $gray-5;
+  }
+}
+
+.amount {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.divider {
+  width: 1px;
+  background-color: $border;
+  align-self: stretch;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+// dark theme
+[data-vb-theme='dark'] {
+  .breadcrumbs {
+    color: $dark-gray-1;
+  }
+
+  .current {
+    color: $white;
+  }
+
+  .arrow {
+    &:after {
+      color: $dark-gray-1;
+    }
+  }
+}

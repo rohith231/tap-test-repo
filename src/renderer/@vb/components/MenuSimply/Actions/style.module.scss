@@ -1,0 +1,172 @@
+@import '@/mixins.scss';
+
+.dropdown {
+  padding-right: 15px;
+  position: relative;
+  cursor: pointer;
+  @include transition-slow;
+
+  &::after {
+    opacity: 0.5;
+    color: $gray-5;
+    position: absolute;
+    top: 45%;
+    right: 0;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: '';
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    @include transition-slow;
+  }
+
+  &:hover {
+    color: $blue;
+
+    &::after {
+      color: $gray-6;
+    }
+
+    .icon {
+      color: $primary;
+    }
+  }
+}
+
+.icon {
+  margin-right: rem(8);
+  position: relative;
+  bottom: -2px;
+  font-size: rem(17);
+  color: $gray-5;
+  @include transition-slow;
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .icon {
+    color: $dark-gray-2;
+  }
+}
+
+
+
+
+.item {
+  border-bottom: 1px solid $gray-2;
+  @include transition-middle;
+
+  &:hover {
+    background-color: $gray-1;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.itemLink {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  color: inherit;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:focus {
+    color: inherit;
+  }
+}
+
+.itemPic {
+  width: rem(42);
+  height: rem(42);
+  border: 1px solid $gray-2;
+  border-radius: 50%;
+  text-align: center;
+  font-size: rem(18);
+  line-height: rem(42);
+  vertical-align: middle;
+  margin-right: rem(20);
+  margin-left: rem(15);
+  background-color: $white;
+  flex-shrink: 0;
+}
+
+.itemAction {
+  margin-left: auto;
+  white-space: nowrap;
+  width: 8px;
+  height: 15px;
+  margin-right: rem(20);
+
+  span {
+    @include transition-fast();
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    width: 15px;
+    height: 22px;
+
+    &:before {
+      position: absolute;
+      top: 5px;
+      left: 0;
+      transform: rotate(45deg);
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: $blue;
+      border-radius: 5px;
+    }
+
+    &:after {
+      position: absolute;
+      top: 9px;
+      left: 0;
+      transform: rotate(-45deg);
+      content: '';
+      width: 7px;
+      height: 2px;
+      background-color: $blue;
+      border-radius: 5px;
+    }
+  }
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .item {
+    border-bottom: 1px solid $dark-gray-4;
+    &:hover {
+      background-color: $dark-gray-5;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  .itemPic {
+    background: $dark-gray-5;
+    border-color: $dark-gray-4;
+  }
+}
+
+
+.read {
+  border-left: 4px solid green !important;
+  border-radius: 2px;
+}
+.un-read {
+  border-left: 4px solid orange !important;
+  border-radius: 2px;
+}

@@ -1,0 +1,46 @@
+// Import mixins
+@import '@/mixins.scss';
+
+.ant-layout {
+  min-width: 0;
+  background: $gray-1 !important;
+}
+
+.ant-layout-sider-children {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.ant-layout-header {
+  padding: 0 !important;
+  line-height: normal;
+  height: auto;
+  background: transparent;
+}
+
+.ant-layout-footer {
+  padding: 0 !important;
+  background: transparent;
+}
+
+.ant-layout.ant-layout-has-sider > .ant-layout,
+.ant-layout.ant-layout-has-sider > .ant-layout-content {
+  overflow-x: initial !important;
+}
+
+
+[data-vb-theme='dark'] {
+  .ant-layout {
+    background: $black !important;
+  }
+   .ant-layout-content {
+    background: $black !important;
+  }
+  .ant-layout-footer {
+    background: $black !important;
+  }
+
+  [class^=ant-], [class*= ant-], [class^=ant-] *, [class*= ant-] *, [class^=ant-] *::before, [class*= ant-] *::before, [class^=ant-] *::after, [class*= ant-] *::after {
+    color: $white !important;
+  }
+}

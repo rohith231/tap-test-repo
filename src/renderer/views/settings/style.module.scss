@@ -1,0 +1,15 @@
+@import '@/mixins.scss';
+
+.amount {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.divider {
+    width: 1px;
+    background-color: $border;
+    align-self: stretch;
+    flex-grow: 0;
+    flex-shrink: 0;
+}

@@ -1,0 +1,40 @@
+@import '@/mixins.scss';
+
+.item {
+  padding: rem(10);
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: lighten($gray-1, 2);
+  }
+}
+
+.current {
+  background-color: $gray-4;
+
+  &:hover {
+    background-color: $gray-4;
+  }
+}
+
+.info {
+  min-width: 0;
+}
+
+.unread {
+  min-width: 15px;
+}
+
+
+
+.avatar {
+  background-color: $gray-5 !important;
+}
+
+// dark theme
+[data-vb-theme='dark'] {
+  .avatar {
+    background: $dark-gray-4 !important;
+  }
+}
