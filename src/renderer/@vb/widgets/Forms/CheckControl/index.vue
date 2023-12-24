@@ -275,7 +275,7 @@
       <vb-assesment :audit="audit" :framework="selectedFramework" :disabled="disabled" @save="audit_save" />
 
       <!-- STIGs -->
-      <template v-if="data.checkControl_id && data.checkControl_id != 'null'">
+      <!-- <template v-if="data.checkControl_id && data.checkControl_id != 'null'"> -->
         <div class="col-md-12 col-sm-12 col-xs-12 mb-1 mt-4">
           <div class="card bg-light border-blue mb-3">
             <div class="card-header border-bottom pt-3 pb-3">
@@ -890,7 +890,7 @@
             </a-collapse-panel>
           </a-collapse>-->
         </div>
-      </template>
+      <!-- </template> -->
 
       <!-- POA&Ms -->
       <div class="col-md-12 col-sm-12 col-xs-12 mb-3 mt-4">
@@ -1410,7 +1410,7 @@ export default {
 
     let buttonLable = computed(() => (data.value.checkControl_id == 'new' ? 'Save' : 'Update'))
 
-    if (data.value.checkControl_id && data.value.checkControl_id != 'null') {
+   // if (data.value.checkControl_id && data.value.checkControl_id != 'null') {
       if (selectedFramework.value == 'NIST80053R4') {
         var parent = computed(() => routeDetails.value.query.control_number)
         store.dispatch('STIGs/GET_SITG_LIST', {
@@ -1447,7 +1447,7 @@ export default {
           framework: selectedFramework.value,
         },
       })
-    }
+    // }
 
     const audit_history_data = (audit) => {
       return computed(() => selectedFramework.value == 'NIST80053R5' ? audit.AuditR5Controls : audit.AuditControls)
